@@ -1,5 +1,6 @@
 class LinkedListNode {
-  constructor(data) {
+  #next = null;
+  constructor(value) {
     // adding the value and next property represented by the node thru the constructor
     this.value = value;
     this.#next = null;
@@ -16,10 +17,12 @@ class LinkedListNode {
     }
   }
   getList() {
+    // no nodes?
     if (!this.#next) {
-      return `${this.list}`;
+      return this.value;
+      // if there is another node add it to the list
     } else {
-      return `${this.list} ${this.next.getList()}`;
+      return this.value + this.#next.getList();
     }
   }
 }
