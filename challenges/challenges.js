@@ -1,3 +1,4 @@
+// challenge 1 getList();
 class LinkedListNode {
   #next = null;
   constructor(value) {
@@ -26,3 +27,43 @@ class LinkedListNode {
     }
   }
 }
+
+// challenge 2 binary node add
+class BinaryTreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+
+  add(node) {
+    if (node.value === this.value) {
+      return;
+    }
+    if (node.value < this.value) {
+      if (!this.left) this.left = node;
+      else this.left.add(node);
+    } else {
+      if (!this.right) this.right = node;
+      else this.right.add(node);
+    }
+  }
+}
+// different ways I tried
+//     add(node, newNode) {
+//       if (newNode.value < node.value) {
+//         if (!node.left) node.left = newNode;
+//         else this.add(node.left, newNode);
+//       } else {
+//         if (!node.right) node.right = newNode;
+//         else this.add(node.right, newNode);
+//       }
+//     }
+//   }
+//     add(node) {
+//         return (this.value > node.value) ? (!this.left ? this.left = node : this.left.add(node)
+//         ) : (
+//             !this.right ? this.right = node : this.right.add(node)
+//         )
+//     }
+// }
